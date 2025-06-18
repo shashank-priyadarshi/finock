@@ -3,13 +3,40 @@ let PDF_CONFIG = [];
 
 async function loadPDFConfig() {
   if (PDF_CONFIG.length) return PDF_CONFIG;
-  // Use correct config path for root and subpages
-  const configPath = window.location.pathname.split('/').length > 3 ? '../config.yaml' : 'config.yaml';
-  const res = await fetch(configPath);
-  const yamlText = await res.text();
-  const config = jsyaml.load(yamlText);
-  PDF_CONFIG = config.pdfs;
-  return PDF_CONFIG;
+  
+  try {
+    // Try loading from local config file first
+    const configPath = window.location.pathname.split('/').length > 3 ? '../config.yaml' : 'config.yaml';
+    const res = await fetch(configPath);
+    const yamlText = await res.text();
+    const config = jsyaml.load(yamlText);
+    
+    // If config.pdfs exists and is not empty, use it
+    if (config.pdfs && config.pdfs.length > 0) {
+      PDF_CONFIG = config.pdfs;
+      return PDF_CONFIG;
+    }
+  } catch (error) {
+    console.log('Failed to load local config, trying remote...', error);
+  }
+  
+  // If we get here, either local load failed or pdfs was empty
+  try {
+    const remoteUrl = 'https://media.finock.ssnk.in/config.yaml';
+    const response = await fetch(remoteUrl);
+    const yamlText = await response.text();
+    const remoteConfig = jsyaml.load(yamlText);
+    
+    if (remoteConfig.pdfs && remoteConfig.pdfs.length > 0) {
+      PDF_CONFIG = remoteConfig.pdfs;
+      return PDF_CONFIG;
+    }
+  } catch (error) {
+    console.error('Failed to load remote config:', error);
+    throw new Error('Failed to load PDF configuration from both local and remote sources');
+  }
+  
+  throw new Error('No valid PDF configuration found');
 }
 
 function getOrdersByTag(tag) {
