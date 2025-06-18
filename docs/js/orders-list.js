@@ -1,14 +1,14 @@
 const ORDERS = {
   'Budget Orders': [
-    { number: 'BO-2024-01', title: 'Budget 2024 Allocation', date: '2024-04-01', summary: 'Annual budget allocation for FY 2024-25.', pdf: '../pdfs/budget1.pdf' },
-    { number: 'BO-2024-02', title: 'Supplementary Grant', date: '2024-05-15', summary: 'Supplementary grant for infrastructure projects.', pdf: '../pdfs/budget2.pdf' },
+    { number: 'BO-2024-01', title: 'Budget 2024 Allocation', date: '2024-04-01', summary: 'Annual budget allocation for FY 2024-25.', pdf: 'pdfs/budget1.pdf' },
+    { number: 'BO-2024-02', title: 'Supplementary Grant', date: '2024-05-15', summary: 'Supplementary grant for infrastructure projects.', pdf: 'pdfs/budget2.pdf' },
   ],
   'Taxation': [
-    { number: 'TX-2024-01', title: 'GST Amendment', date: '2024-03-10', summary: 'Amendment to GST rates for select goods.', pdf: '../pdfs/tax1.pdf' },
-    { number: 'TX-2024-02', title: 'Income Tax Slab Revision', date: '2024-02-20', summary: 'Revision of income tax slabs for FY 2024-25.', pdf: '../pdfs/tax2.pdf' },
+    { number: 'TX-2024-01', title: 'GST Amendment', date: '2024-03-10', summary: 'Amendment to GST rates for select goods.', pdf: 'pdfs/tax1.pdf' },
+    { number: 'TX-2024-02', title: 'Income Tax Slab Revision', date: '2024-02-20', summary: 'Revision of income tax slabs for FY 2024-25.', pdf: 'pdfs/tax2.pdf' },
   ],
   'Expenditure': [
-    { number: 'EX-2024-01', title: 'Departmental Expenditure', date: '2024-01-12', summary: 'Expenditure details for Q1 2024.', pdf: '../pdfs/exp1.pdf' },
+    { number: 'EX-2024-01', title: 'Departmental Expenditure', date: '2024-01-12', summary: 'Expenditure details for Q1 2024.', pdf: 'pdfs/exp1.pdf' },
   ]
 };
 

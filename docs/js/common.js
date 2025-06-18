@@ -3,7 +3,9 @@ let PDF_CONFIG = [];
 
 async function loadPDFConfig() {
   if (PDF_CONFIG.length) return PDF_CONFIG;
-  const res = await fetch('../config.yaml');
+  // Use correct config path for root and subpages
+  const configPath = window.location.pathname.split('/').length > 3 ? '../config.yaml' : 'config.yaml';
+  const res = await fetch(configPath);
   const yamlText = await res.text();
   const config = jsyaml.load(yamlText);
   PDF_CONFIG = config.pdfs;
@@ -19,22 +21,8 @@ function getOrderByNumberAndTag(number, tag) {
 }
 
 function getPDFPath(order) {
-  // Config.yaml paths are relative to src/ directory
-  // We need to adjust them based on current page location
+  // Config.yaml paths are now relative to docs/ directory
   let pdfPath = order.pdf_path || order.pdf;
-  
-  // Get current page path to determine context
-  const currentPath = window.location.pathname;
-  
-  // If we're in a subdirectory of src/, we need to go up one more level
-  if (currentPath.includes('/pages/') || currentPath.includes('/details/') || currentPath.includes('/pdfviews/')) {
-    // Config path is "../pdfs/file.pdf" (relative to src/)
-    // From subdirectory, we need "../../pdfs/file.pdf" to reach root/pdfs/
-    if (pdfPath.startsWith('../pdfs/')) {
-      pdfPath = '../' + pdfPath; // Convert "../pdfs/" to "../../pdfs/"
-    }
-  }
-  
   return pdfPath;
 }
 

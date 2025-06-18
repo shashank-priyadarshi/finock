@@ -1,5 +1,5 @@
 const ORDERS = [
-  { number: 'EX-2024-01', title: 'Departmental Expenditure', date: '2024-01-12', summary: 'Expenditure details for Q1 2024.', pdf: '../pdfs/exp1.pdf' },
+  { number: 'EX-2024-01', title: 'Departmental Expenditure', date: '2024-01-12', summary: 'Expenditure details for Q1 2024.', pdf: 'pdfs/exp1.pdf' },
 ];
 
 function getOrder() {
