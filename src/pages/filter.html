@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Filter Orders</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+  <script src="../js/common.js"></script>
+  <script src="../js/filter.js"></script>
+</head>
+<body>
+  <div class="orders-list-container">
+    <h2>Filter Orders</h2>
+    <div class="filter-group">
+      <label for="section-select">Section:</label>
+      <select id="section-select">
+        <option value="">All</option>
+        <option value="Budget Orders">Budget Orders</option>
+        <option value="Taxation">Taxation</option>
+        <option value="Expenditure">Expenditure</option>
+      </select>
+      <label for="start-date">From:</label>
+      <input type="date" id="start-date" />
+      <label for="end-date">To:</label>
+      <input type="date" id="end-date" />
+      <input type="text" id="search-bar" placeholder="Search orders..." />
+    </div>
+    <ul id="orders-list"></ul>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      injectNav();
+    });
+  </script>
+</body>
+</html>

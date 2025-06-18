@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Details</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <nav class="top-nav">
+    <a href="../index.html">Home</a>
+    <a href="../pages/sections.html">Sections</a>
+    <a href="../pages/all-pdfs.html">Show All PDFs</a>
+  </nav>
+  <div class="order-details-container">
+    <h2 id="order-title"></h2>
+    <div class="details-meta">
+      <span id="order-date"></span> |
+      <span id="order-number"></span>
+    </div>
+    <div id="order-summary"></div>
+    <button id="view-pdf-btn">View PDF</button>
+    <div id="pdf-viewer-panel" style="display:none; margin-top:2rem;">
+      <iframe id="pdf-viewer" src="" frameborder="0"></iframe>
+    </div>
+  </div>
+  <script src="../js/order-details.js"></script>
+</body>
+</html>

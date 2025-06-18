@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All PDFs</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+  <script src="../js/common.js"></script>
+</head>
+<body>
+  <nav class="top-nav">
+    <a href="../index.html">Home</a>
+  </nav>
+  <div class="all-pdfs-container">
+    <h2>All Published PDFs</h2>
+    <ul id="all-pdf-list"></ul>
+    <div id="all-pdf-viewer-panel">
+      <iframe id="all-pdf-viewer" src="" frameborder="0" style="display:none;"></iframe>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', async function() {
+      await loadPDFConfig();
+      const list = document.getElementById('all-pdf-list');
+      list.innerHTML = '';
+      PDF_CONFIG.forEach(pdf => {
+        const li = document.createElement('li');
+        li.innerHTML = `<a href="${getPDFPath(pdf)}" target="_blank">${pdf.title}</a> <span class="order-size">(${pdf.pdf_size})</span>`;
+        list.appendChild(li);
+      });
+    });
+  </script>
+</body>
+</html>

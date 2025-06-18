@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finance Ministry Portal</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Enhanced visual hierarchy styles */
+    .primary-cta {
+      font-size: 1.3rem !important;
+      font-weight: 700 !important;
+      padding: 2rem 3rem !important;
+      background: linear-gradient(135deg, #232946, #eebbc3) !important;
+      color: #fff !important;
+      border: 2px solid #eebbc3 !important;
+      box-shadow: 0 6px 20px rgba(238,187,195,0.25) !important;
+      animation: pulse 3s infinite;
+    }
+    
+    .primary-cta:hover {
+      transform: scale(1.05) !important;
+      box-shadow: 0 8px 24px rgba(238,187,195,0.35) !important;
+    }
+    
+    .secondary-buttons {
+      font-size: 1.1rem !important;
+      font-weight: 600 !important;
+      padding: 1.8rem 2.5rem !important;
+    }
+    
+    .utility-buttons {
+      font-size: 0.95rem !important;
+      font-weight: 500 !important;
+      padding: 1.2rem 2rem !important;
+      background: #232946 !important;
+      color: #eebbc3 !important;
+      border: 2px solid #eebbc3 !important;
+      min-width: 160px;
+    }
+    
+    .utility-buttons:hover {
+      background: #eebbc3 !important;
+      color: #232946 !important;
+      transform: translateY(-2px);
+    }
+    
+    .toggle-button {
+      background: #393e6c !important;
+      color: #b8c1ec !important;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 1.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .toggle-button:hover {
+      background: #b8c1ec !important;
+      color: #232946 !important;
+    }
+    
+    .categories-section {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-in-out;
+    }
+    
+    .categories-section.expanded {
+      max-height: 200px;
+    }
+    
+    @keyframes pulse {
+      0% { box-shadow: 0 6px 20px rgba(238,187,195,0.25); }
+      50% { box-shadow: 0 6px 20px rgba(238,187,195,0.4); }
+      100% { box-shadow: 0 6px 20px rgba(238,187,195,0.25); }
+    }
+  </style>
+</head>
+<body>
+  <div class="landing-container">
+    <h1>Welcome to the Finance Ministry Portal</h1>
+    <p>Access ministry orders, circulars, and all published PDFs.</p>
+    
+    <!-- Top Row: Ministry Orders -->
+    <div class="section-cards">
+      <div class="section-card primary-cta" data-section="Ministry Orders" onclick="location.href='pages/orders.html'">
+        Ministry Orders
+      </div>
+    </div>
+    
+    <!-- Toggle Button for Categories -->
+    <button class="toggle-button" onclick="toggleCategories()">
+      <span id="toggle-text">Show Categories</span> ▼
+    </button>
+    
+    <!-- Middle Row: Category Segregation (Initially Hidden) -->
+    <div class="categories-section" id="categories-section">
+      <div class="section-cards" style="margin-top:1.5rem;">
+        <div class="section-card secondary-buttons" data-section="Budget Orders" onclick="location.href='pages/budget-orders.html'">Budget</div>
+        <div class="section-card secondary-buttons" data-section="Taxation" onclick="location.href='pages/taxation-orders.html'">Taxation</div>
+        <div class="section-card secondary-buttons" data-section="Expenditure" onclick="location.href='pages/expenditure-orders.html'">Expenditure</div>
+      </div>
+    </div>
+    
+    <!-- Bottom Row: Utility Functions -->
+    <div class="section-cards" style="margin-top:2rem;">
+      <div class="section-card utility-buttons" data-section="Filter" onclick="location.href='pages/filter.html'">Filter Orders</div>
+      <a href="pages/all-pdfs.html" class="section-card utility-buttons" style="text-decoration: none; display: flex; align-items: center; justify-content: center;">Show All PDFs</a>
+    </div>
+  </div>
+  
+  <script src="js/common.js"></script>
+  <script>
+    function toggleCategories() {
+      const categoriesSection = document.getElementById('categories-section');
+      const toggleText = document.getElementById('toggle-text');
+      const toggleButton = document.querySelector('.toggle-button');
+      
+      if (categoriesSection.classList.contains('expanded')) {
+        categoriesSection.classList.remove('expanded');
+        toggleText.textContent = 'Show Categories';
+        toggleButton.innerHTML = '<span id="toggle-text">Show Categories</span> ▼';
+      } else {
+        categoriesSection.classList.add('expanded');
+        toggleText.textContent = 'Hide Categories';
+        toggleButton.innerHTML = '<span id="toggle-text">Hide Categories</span> ▲';
+      }
+    }
+  </script>
+</body>
+</html>

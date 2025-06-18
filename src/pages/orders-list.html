@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orders List</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <nav class="top-nav">
+    <a href="../index.html">Home</a>
+    <a href="sections.html">Sections</a>
+    <a href="all-pdfs.html">Show All PDFs</a>
+  </nav>
+  <div class="orders-list-container">
+    <h2 id="section-title"></h2>
+    <div class="filter-group">
+      <label for="start-date">From:</label>
+      <input type="date" id="start-date" />
+      <label for="end-date">To:</label>
+      <input type="date" id="end-date" />
+      <input type="text" id="search-bar" placeholder="Search orders..." />
+    </div>
+    <ul id="orders-list"></ul>
+  </div>
+  <script src="../js/orders-list.js"></script>
+</body>
+</html>

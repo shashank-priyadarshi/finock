@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taxation Order PDF</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+  <script src="../js/common.js"></script>
+  <script src="../js/taxation-order-pdf.js"></script>
+</head>
+<body>
+  <div class="order-details-container">
+    <h2 id="order-title"></h2>
+    <div class="details-meta">
+      <span id="order-date"></span> |
+      <span id="order-number"></span>
+    </div>
+    <div id="order-summary"></div>
+    <button id="view-pdf-btn">View PDF</button>
+    <div id="pdf-viewer-panel" style="display:none; margin-top:2rem;">
+      <iframe id="pdf-viewer" src="" frameborder="0"></iframe>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      injectNav();
+    });
+  </script>
+</body>
+</html>

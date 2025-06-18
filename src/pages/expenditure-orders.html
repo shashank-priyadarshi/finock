@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expenditure Orders</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+  <script src="../js/common.js"></script>
+</head>
+<body>
+  <div class="orders-list-container">
+    <h2>Expenditure Orders</h2>
+    <ul id="orders-list"></ul>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', async function() {
+      injectNav();
+      await loadPDFConfig();
+      const orders = getOrdersByTag('expenditure');
+      renderOrderList(orders, document.getElementById('orders-list'), 'expenditure-order-details.html');
+    });
+  </script>
+</body>
+</html>
